@@ -22,23 +22,3 @@
 ```
 gcc -o memcpy_s.o -c -Iinclude -fstack-protector-strong -fPIC -Wall -D_FORTIFY_SOURCE=2 -O2 src/memcpy_s.c
 ```
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
- 
-
-
-
