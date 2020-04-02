@@ -10,7 +10,7 @@
 
 #### Building methods
 
--compilation steps
+- compilation steps
 
 1. Add all the .c files under /src to the source code listing for the build script.
 
@@ -21,7 +21,7 @@
 
 4. Generate static or shared libraries for .o files according to project requirements.
 
--compiling examples:
+- compiling examples:
 ```
 gcc -o memcpy_s.o -c -Iinclude -fstack-protector-strong -fPIC -Wall -D_FORTIFY_SOURCE=2 -O2 src/memcpy_s.c
 ```
