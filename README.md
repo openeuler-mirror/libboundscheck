@@ -6,19 +6,21 @@
 - 处理边界检查函数的版本发布、更新以及维护。
 
 
-####构建方法
+#### 构建方法
 
 - 编译步骤
 
-1. 调整项目的构建脚本，将src下的.c文件作为新的编译单元参加编译。
+1. 将src下的.c文件添加到构建脚本的源码清单中。
 
-2. 在编译选项中指定头文件目录（例如：在CFLAGS中添加 -Ipath_to_include）；
+2. 在编译选项中指定头文件目录以及项目需要的编译选项（例如：在CFLAGS中添加 -Ipath_to_include -fstack-protector-strong -fPIC    -Wall -D_FORTIFY_SOURCE=2 -O2）。
 
-3. 根据实际使用场景编译生成静态库或共享库使用。
+3. 为每个.c文件编译生成.o文件 。
+
+4. 根据项目需要将.o文件生成静态库或共享库使用。
 
 - 编译示例：
 ```
-gcc -o memcpy_s.o src/memcpy_s.c -Iinclude
+gcc -o memcpy_s.o -c -Iinclude -fstack-protector-strong -fPIC -Wall -D_FORTIFY_SOURCE=2 -O2 src/memcpy_s.c
 ```
 
 
