@@ -8,7 +8,45 @@
 
 - handles the release, update, and maintenance of bounds_checking_function.
 
-#### Building methods
+#### Function List
+
+- memcpy_s
+- wmemcpy_s
+- memmove_s
+- wmemmove_s
+- memset_s
+- strcpy_s
+- wcscpy_s
+- strncpy_s
+- wcsncpy_s
+- strcat_s
+- wcscat_s
+- strncat_s
+- wcsncat_s
+- strtok_s
+- cwcstok_s
+- sprintf_s
+- swprintf_s
+- vsprintf_s
+- vswprintf_s
+- snprintf_s
+- vsnprintf_s
+- scanf_s
+- wscanf_s
+- vscanf_s
+- vwscanf_s
+- fscanf_s
+- fwscanf_s
+- vfscanf_s
+- vfwscanf_s
+- sscanf_s
+- swscanf_s
+- vsscanf_s
+- vswscanf_s
+- gets_s
+
+
+#### Building 
 
 - compilation steps
 
