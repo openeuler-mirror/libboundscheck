@@ -5,6 +5,41 @@
 - 未来将分析C11 Annex K中的其他标准函数，如果有必要，将在该组织中实现。
 - 处理边界检查函数的版本发布、更新以及维护。
 
+#### 函数清单
+memcpy_s
+wmemcpy_s
+memmove_s
+wmemmove_s
+memset_s
+strcpy_s
+wcscpy_s
+strncpy_s
+wcsncpy_s
+strcat_s
+wcscat_s
+strncat_s
+wcsncat_s
+strtok_s
+cwcstok_s
+sprintf_s
+swprintf_s
+vsprintf_s
+vswprintf_s
+snprintf_s
+vsnprintf_s
+scanf_s
+wscanf_s
+vscanf_s
+vwscanf_s
+fscanf_s
+fwscanf_s
+vfscanf_s
+vfwscanf_s
+sscanf_s
+swscanf_s
+vsscanf_s
+vswscanf_s
+gets_s
 
 #### 构建方法
 
