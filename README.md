@@ -1,4 +1,4 @@
-# bounds_checking_function
+# libboundscheck
 
 #### 介绍
 - 遵循C11 Annex K (Bounds-checking interfaces)的标准，选取并实现了常见的内存/字符串操作类的函数，如memcpy_s、strcpy_s等函数。
@@ -42,20 +42,15 @@
 - vswscanf_s
 - gets_s
 
-
 #### 构建方法
 
-- 编译步骤
-
-1. 将src下的.c文件添加到构建脚本的源码清单中。
-
-2. 在编译选项中指定头文件目录以及项目需要的编译选项（例如：在CFLAGS中添加 -Ipath_to_include -fstack-protector-strong -fPIC    -Wall -D_FORTIFY_SOURCE=2 -O2）。
-
-3. 为每个.c文件编译生成.o文件 。
-
-4. 根据项目需要将.o文件生成静态库或共享库使用。
-
-- 编译示例：
+运行命令
 ```
-gcc -o memcpy_s.o -c -Iinclude -fstack-protector-strong -fPIC -Wall -D_FORTIFY_SOURCE=2 -O2 src/memcpy_s.c
+make CC=gcc
 ```
+生成的动态库libboundscheck.so存放在新创建的lib目录下。
+
+#### 使用方法
+1. 将构建生成的动态库libboundscheck.so放到库文件目录下，例如："/usr/local/lib/"。
+
+2. 为使用libboundscheck，编译程序时需增加编译参数"-lboundscheck"，例如："gcc -g -o test test.c -lboundscheck"。

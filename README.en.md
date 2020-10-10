@@ -1,4 +1,4 @@
-# bounds_checking_function
+# libboundscheck
 
 #### Description
 
@@ -46,22 +46,14 @@
 - gets_s
 
 
-#### Building 
+#### Build
 
-- compilation steps
-
-1. Add all the .c files under /src to the source code listing for the build script.
-
-2. In the build options, specify the header directory and the build options required for the project (for example, add  
--Ipath_to_include -fstack-protector-strong -fPIC -Wall -D_FORTIFY_SOURCE=2 -O2 in CFLAGS).
-
-3. Generate .o files for each .c file.
-
-4. Generate static or shared libraries for .o files according to project requirements.
-
-- compiling examples:
 ```
-gcc -o memcpy_s.o -c -Iinclude -fstack-protector-strong -fPIC -Wall -D_FORTIFY_SOURCE=2 -O2 src/memcpy_s.c
+CC=gcc make
 ```
+The generated Dynamic library libboundscheck.so is stored in the newly created directory lib.
 
+#### How to use
+1. Copy the libboundscheck.so to the library file directory, for example: "/usr/local/lib/".
 
+2. To use the libboundscheck, add the “-lboundscheck” parameters to the compiler, for example: “gcc -g -o test test.c -lboundscheck”. 
