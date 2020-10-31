@@ -24,7 +24,7 @@
 - strncat_s
 - wcsncat_s
 - strtok_s
-- cwcstok_s
+- wcstok_s
 - sprintf_s
 - swprintf_s
 - vsprintf_s
