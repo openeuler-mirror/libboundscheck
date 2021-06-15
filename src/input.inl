@@ -458,7 +458,7 @@ SECUREC_INLINE int SecExtendFloatLen(SecFloatSpec *floatSpec)
     return 0;
 }
 
-/* Do not use localeconv()->decimal_pointif  onlay support  '.' */
+/* Do not use localeconv()->decimal_pointif  only support  '.' */
 SECUREC_INLINE int SecIsFloatDecimal(SecChar ch)
 {
     return (int)(ch == SECUREC_CHAR('.'));
@@ -974,7 +974,7 @@ SECUREC_INLINE int SecIsLongBitEqual(int bitNum)
  */
 SECUREC_INLINE int SecHexValueOfChar(SecInt ch)
 {
-    /* Use isdigt Causing tool false alarms */
+    /* Use isdigit Causing tool false alarms */
     return (int)((ch >= '0' && ch <= '9') ? ((unsigned char)ch - '0') :
             ((((unsigned char)ch | (unsigned char)('a' - 'A')) - ('a')) + 10)); /* Adding 10 is to hex value */
 }
@@ -1785,7 +1785,7 @@ SECUREC_INLINE int SecInputString(SecFileStream *stream, SecScanSpec *spec,
 
 #ifdef SECUREC_FOR_WCHAR
 /*
- * Alloce buffer for wchar version of %[.
+ * Allocate buffer for wchar version of %[.
  * Return 0 OK
  */
 SECUREC_INLINE int SecAllocBracketTable(SecBracketTable *bracketTable)
@@ -1839,7 +1839,7 @@ int SecInputS(SecFileStream *stream, const char *cFormat, va_list argList)
     spec.ch = 0; /* Need to initialize to 0 */
     spec.charCount = 0; /* Need to initialize to 0 */
 
-    /* Format must not NULL, use err < 1 to claer 845 */
+    /* Format must not NULL, use err < 1 to clear 845 */
     while (errRet < 1 && *format != SECUREC_CHAR('\0')) {
         /* Skip space in format and space in input */
         if (SecIsSpace((SecInt)(int)(*format)) != 0) {
@@ -1931,7 +1931,7 @@ int SecInputS(SecFileStream *stream, const char *cFormat, va_list argList)
                         --spec.arrayWidth;
                     }
                 } else {
-                    /* Set argPtr to  NULL  is necessary, in supress mode we don't use argPtr to store data */
+                    /* Set argPtr to  NULL  is necessary, in suppress mode we don't use argPtr to store data */
                     spec.argPtr = NULL;
                 }
 
@@ -2175,7 +2175,7 @@ SECUREC_INLINE SecInt SecGetChar(SecFileStream *stream, int *counter)
 }
 
 /*
- *  Unget Public realizatio char for wchar and char version
+ *  Unget Public realization char for wchar and char version
  */
 SECUREC_INLINE void SecUnGetCharImpl(SecInt ch, SecFileStream *stream)
 {
@@ -2205,7 +2205,7 @@ SECUREC_INLINE void SecUnGetCharImpl(SecInt ch, SecFileStream *stream)
  */
 SECUREC_INLINE void SecUnGetChar(SecInt ch, SecFileStream *stream, int *counter)
 {
-    *counter = *counter - 1; /* Always mius 1 */
+    *counter = *counter - 1; /* Always minus 1 */
     if (ch != SECUREC_EOF) {
         SecUnGetCharImpl(ch, stream);
     }
