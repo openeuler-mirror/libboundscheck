@@ -23,21 +23,28 @@
 #define SECUREC_HANDLE_WFORMAT 1
 #endif
 
-#if SECUREC_HANDLE_WFORMAT && defined(__GNUC__) && ((__GNUC__ >= 5) || \
-    (defined(__GNUC_MINOR__) && (__GNUC__ == 4 && __GNUC_MINOR__ > 7)))
 #if defined(__clang__)
+#if SECUREC_HANDLE_WFORMAT && defined(__GNUC__) && ((__GNUC__ >= 5) || \
+    (defined(__GNUC_MINOR__) && (__GNUC__ == 4 && __GNUC_MINOR__ >= 2)))
 #define SECUREC_MASK_WFORMAT_WARNING  _Pragma("GCC diagnostic push") \
     _Pragma("GCC diagnostic ignored \"-Wformat-nonliteral\"")
-#else
-#define SECUREC_MASK_WFORMAT_WARNING  _Pragma("GCC diagnostic push") \
-    _Pragma("GCC diagnostic ignored \"-Wformat-nonliteral\"") \
-    _Pragma("GCC diagnostic ignored \"-Wmissing-format-attribute\"") \
-    _Pragma("GCC diagnostic ignored \"-Wsuggest-attribute=format\"")
-#endif
 #define SECUREC_END_MASK_WFORMAT_WARNING  _Pragma("GCC diagnostic pop")
 #else
 #define SECUREC_MASK_WFORMAT_WARNING
 #define SECUREC_END_MASK_WFORMAT_WARNING
+#endif
+#else
+#if SECUREC_HANDLE_WFORMAT && defined(__GNUC__) && ((__GNUC__ >= 5 ) || \
+    (defined(__GNUC_MINOR__) && (__GNUC__ == 4 && __GNUC_MINOR__ > 7)))
+#define SECUREC_MASK_WFORMAT_WARNING  _Pragma("GCC diagnostic push") \
+    _Pragma("GCC diagnostic ignored \"-Wformat-nonliteral\"") \
+    _Pragma("GCC diagnostic ignored \"-Wmissing-format-attribute\"") \
+    _Pragma("GCC diagnostic ignored \"-Wsuggest-attribute=format\"")
+#define SECUREC_END_MASK_WFORMAT_WARNING  _Pragma("GCC diagnostic pop")
+#else
+#define SECUREC_MASK_WFORMAT_WARNING
+#define SECUREC_END_MASK_WFORMAT_WARNING
+#endif
 #endif
 
 #define SECUREC_MASK_VSPRINTF_WARNING  SECUREC_MASK_WFORMAT_WARNING \

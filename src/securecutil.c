@@ -44,8 +44,8 @@ int mbtowc(wchar_t *pwc, const char *s, size_t n)
 
 /* The V100R001C01 version num is 0x5 (High 8 bits) */
 #define SECUREC_C_VERSION     0x500U
-#define SECUREC_SPC_VERSION   0xbU
-#define SECUREC_VERSION_STR   "V100R001C01SPC011B003"
+#define SECUREC_SPC_VERSION   0x10U
+#define SECUREC_VERSION_STR   "1.1.16"
 
 /*
  * Get version string and version number.
