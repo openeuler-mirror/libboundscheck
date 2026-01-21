@@ -24,7 +24,16 @@
 #endif
 
 #if SECUREC_HAVE_STDARG_H
+#if SECUREC_IN_KERNEL
+#include <linux/version.h>
+#if (KERNEL_VERSION(6, 0, 0) <= LINUX_VERSION_CODE)
+#include <linux/stdarg.h>
+#else
 #include <stdarg.h>
+#endif
+#else
+#include <stdarg.h>
+#endif
 #endif
 
 #ifndef SECUREC_HAVE_ERRNO_H
